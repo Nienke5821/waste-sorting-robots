@@ -15,9 +15,17 @@ Our project can be divided into three parts, as can also be read in the report. 
 ### Locomotion
 
 ### Manipulation
-The Manipulation folder contains two python files. "compare methods.py" is used to find the best way to compute a line through a straight part of the bottle. This compiles 5 images, also saved in the Orientation folder.
+The Manipulation folder contains three python files. "compare methods.py" is used to find the best way to compute a line through a straight part of the bottle. This compiles 5 images, also saved in the Orientation folder.
 
 "SAM2 live.py" is the final algorithm that can be used to get the directions for the robot claw to move. It shows you the live input of the camera, together with the drawn outline and line through the bottle if detected. It also displays the movement instructions on the screen.
+
+"Sam2 testing.py" is the algorithm used for the results section of the report. In here, the movement directions are based on moving the bottle instead of the camera. This is since this is easier when using a webcam, and theoretically the results are the same.
+
+The results of the tests for the Manipulation part are recorded using this testing file and can also be seen in this folder. There are four videos:
+- one bottle.avi: recording of one not crumbled bottle
+- two bottles.avi: recording of two not crumbled bottles
+- one crumbled bottle.avi: recording of a crumbled bottle
+- two crumbled bottles.avi: recording of two crumbed bottles
 
 ## How to run
 
@@ -26,7 +34,7 @@ The Manipulation folder contains two python files. "compare methods.py" is used 
 ### Locomotion
 
 ### Manipulation
-You can run the "compare methods" file by running the file in the terminal. You can run the "SAM2 live" file also by running the file in the terminal. For this one, make sure there is a camera input.
+You can run the "compare methods" file by running the file in the terminal. You can run the "SAM2 live" file also by running the file in the terminal. For this one, make sure there is a camera input. This is the same for the "SAM2 testing" file. Make sure you are located in the Manipulation folder when running, since it needs other files from this folder.
 
 ## Authors
 Britt Erkens (1468359) 
