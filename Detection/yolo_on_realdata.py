@@ -40,7 +40,7 @@ def get_boxes_video(runtime_params, image_zed, yolo_model, coverage_threshold=0.
         else:
             cv2.imshow("YOLOv11", frame[:, :, :3])
 
-def draw_boxes(detections, frame, threshold=0.2):
+def draw_boxes(detections, frame, threshold=0.1):
     """
     Adds the bounding boxes to an array if the confidence values of the objects surpass the threshold. After 
     drawing the frame, it search for the largest bounding by finding the box with the largest area. If an "largest"
@@ -49,7 +49,7 @@ def draw_boxes(detections, frame, threshold=0.2):
     Args:
         detections (ultralytics.engine.results.Results): output from the YOLO model containing the results.
         frame (np.ndarray): frame of the image.
-        threshold (float): threshold which the confidence value of the object should surpass. Default is set to 0.2
+        threshold (float): threshold which the confidence value of the object should surpass. Default is set to 0.1
 
     Returns:
         np.ndarray: frame with the largest bounding box and directional arrow drawn on, if there exist a largest 
@@ -115,8 +115,9 @@ def draw_arrow(largest_box, frame, w0, h0, closeby=0.1):
         dx = center_x - frame_center[0]
         dy = center_y - frame_center[1]
         
-        if abs(dx) <= closeby and abs(dy) <= closeby:
-            direction = "Center"
+        if abs(dx) <= closeby:
+            direction = "Center, move forward"
+
         else:
             horizontal = "Right" if dx > 0 else "Left"
             vertical = "Down" if dy > 0 else "Up"
@@ -143,7 +144,12 @@ def load_video():
 
 if __name__=="__main__":
 
-    yolo_model = YOLO("results/strategy_A/train_after_wild_litter/weights/best.pt")
+    # yolo_model = YOLO("results/strategy_A/train_after_wild_litter/weights/best.pt")
+    # yolo_model = YOLO("results/hsv_h 0.1/train/weights/best.pt")
+    # yolo_model = YOLO("results/hsv_v 0.8/train/weights/best.pt")
+    yolo_model = YOLO("results/strategy_C/weights/best.pt")
+    # yolo_model = YOLO("results/Model_combined/weights/best.pt")
+    # yolo_model = YOLO("results/Model_subset/weights/best.pt")
     zed = sl.Camera()
     runtime_params, image_zed = load_video()
     get_boxes_video(runtime_params, image_zed, yolo_model)
