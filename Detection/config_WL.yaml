@@ -1,0 +1,7 @@
+path: C:/...../Pictures/wild+litter
+train: train/images
+val: valid/images
+
+# Classes
+names:
+  0: bottle

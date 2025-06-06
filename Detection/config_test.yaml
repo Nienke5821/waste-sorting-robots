@@ -1,0 +1,7 @@
+path: C:/...../test-data/warp+litter+wild  # can be "." if already in the folder
+train: images/train
+val: images/test
+
+
+nc: 1 # number of classes
+names: ['bottle']  # list of class names

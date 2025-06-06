@@ -1,0 +1,7 @@
+path: C:/...../Pictures/WaRP_filtered_train_and_val.v1i.yolov11
+train: train/images
+val: valid/images
+
+# Classes
+names:
+  0: bottle
