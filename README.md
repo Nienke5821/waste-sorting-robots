@@ -30,7 +30,7 @@ The results of the tests for the Manipulation part are recorded using this testi
 ## How to run
 
 ### Detection
-
+You can run the codes by running the files in a terminal. Keep in mind that the paths in both the Python files as the corresponding .yaml files are in line with your own file structure. Keep in mind that it is not possible to change the names of the directories that are still in the files of this GitHub page, because the structure is necessary if you are using YOLOv9 from Ultralytics.
 ### Locomotion
 
 ### Manipulation
