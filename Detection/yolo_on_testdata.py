@@ -1,4 +1,3 @@
-import onnxruntime as ort
 import numpy as np
 import cv2
 import pyzed.sl as sl
@@ -149,6 +148,9 @@ def load_video(file):
 if __name__=="__main__":
 
     # Parameters
+    info = sl.CameraInformation()
+    sdk_version = info.sdk_version
+    print(sdk_version)
     yolo_model = YOLO("results/strategy_A/train_after_wild_litter/weights/best.pt")
     # file = "testdata/ZED2/HD1080_SN29184346_13-18-2qq9.svo"
     file = "testdata/ZED2/HD1080_SN29184346_13-21-43.svo"
