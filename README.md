@@ -33,15 +33,13 @@ Test:
 
 "config_test.yaml": Specifies the test datasets used in the evaluation.
 
-"yolo_on_testdata.py": 
+"yolo_on_testdata.py": The YOLO detection algorithm running on the testdata. It outputs the largest bounding box, a directional arrow and gives simple movements to move towards the detected bottle.
 
-"yolo_on_realdata.py": 
+"yolo_on_realdata.py": The YOLO detection algorithm running on live video stream. It outputs the largest bounding box, a directional arrow and gives simple movements to move towards the detected bottle.
 
 Real-world test videos are located in the "testdata" folder.
 
 Results of real-time detection using the Quadruped Robot with a mounted ZED2 camera are available in the "results_quadruped_detection" folder.
-
-
 
 ### Locomotion
 
@@ -58,14 +56,22 @@ The results of the tests for the Manipulation part are recorded using this testi
 - one crumbled bottle.avi: recording of a crumbled bottle
 - two crumbled bottles.avi: recording of two crumbed bottles
 
+Panda Arm:
+"target_pose.py" is the algorithm that computes the transformation matrix from the detected bottle to the base of th robotic arm.
+
+"follow_target.py" is the algorithm that makes the robotic arm moves towards the detected bottle, using the transformation matrix calculated in "target_pose.py".
+
+    testing:
+    The results of testing with the robotic arm can be found here. It includes videos of the Franka Emika Panda Robot running on the "target_pose.py" and "follow_target.py" files. 
+
 ## How to run
 
 ### Detection
-You can run the codes by running the files in a terminal. Keep in mind that the paths in both the Python files as the corresponding .yaml files are in line with your own file structure. Keep in mind that it is not possible to change the names of the directories that are still in the files of this GitHub page, because the structure is necessary if you are using YOLOv9 from Ultralytics.
+You can run the codes by running the files in a terminal. Keep in mind that the paths in both the Python files as the corresponding .yaml files are in line with your own file structure. Keep in mind that it is not possible to change the names of the directories that are still in the files of this GitHub page, because the structure is necessary if you are using YOLOv9 from Ultralytics. To be able to run the python code together with the ZED2 camera, ZED SDK and CUDA are needed. The version used on this code are: ZED SDK version: 5.0.0. and CUDA version: v11.8.89. Having this installed, the code should run normally. For correct function of the ZED SDK a nvidia GPU is mandotary.
 ### Locomotion
 
 ### Manipulation
-You can run the "compare methods" file by running the file in the terminal. You can run the "SAM2 live" file also by running the file in the terminal. For this one, make sure there is a camera input. This is the same for the "SAM2 testing" file. Make sure you are located in the Manipulation folder when running, since it needs other files from this folder.
+You can run the "compare methods" file by running the file in the terminal. You can run the "SAM2 live" file also by running the file in the terminal. For this one, make sure there is a camera input. This is the same for the "SAM2 testing" file. Make sure you are located in the Manipulation folder when running, since it needs other files from this folder. For the Franka Emika Panda Arm codes to run, a git clone of dual_arm_tutorial: https://gitlab.tue.nl/gvdb/dual_arm_tutorial.git is needed, as it uses some depencies from this GitLab. Furthermore, ROS Noetic, Gazebo and Franka_ros are needed. How to download these are explained in the README of the dual arm tutorial GitLab. To run "target_pose.py" and "follow_target.py" a simulation or real should be launched in a terminal, "target_pose.py" should be runne in a seperate terminal and "follow_target.py" should be runned in a seperate terminal.
 
 ## Authors
 Britt Erkens (1468359) 
