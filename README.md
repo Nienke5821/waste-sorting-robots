@@ -11,6 +11,37 @@ Our project can be divided into three parts, as can also be read in the report. 
 - Locomotion: moving towards the detected bottle
 - Manipulation: orienting the robot claw such that it can pick the bottle up
 ### Detection
+The Detection folder contains scripts and resources related to plastic bottle detection using YOLO. It contains the following components:
+
+Preprocessing:
+
+"preprocessing.py":  Filters out all non-plastic bottle classes from the online dataset.
+
+Training: 
+
+"train_strat_A&B.py": Trains models using two strategies — (A) the existing online dataset and (B) the augmented version of the online dataset.
+
+"train_strat_C.ipynb": Trains a model using a synthetic dataset (strategy C). It also includes training with a subset of the online dataset and compares its performance to the synthetic-only model.
+
+"config_WARP.yaml", "config_WL.yaml": Specifies the existing online datasets used in the training.
+
+Training results are saved in the "results_YOLO" folder.
+
+Test: 
+
+"test.py": Defines the evaluation procedure for testing multiple models on datasets derived from the original online dataset.
+
+"config_test.yaml": Specifies the test datasets used in the evaluation.
+
+"yolo_on_testdata.py": 
+
+"yolo_on_realdata.py": 
+
+Real-world test videos are located in the "testdata" folder.
+
+Results of real-time detection using the Quadruped Robot with a mounted ZED2 camera are available in the "results_quadruped_detection" folder.
+
+
 
 ### Locomotion
 
